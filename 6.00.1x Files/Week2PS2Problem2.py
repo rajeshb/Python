@@ -10,6 +10,7 @@ annualInterestRate = 0.2
 balance = 3926
 annualInterestRate = 0.2
 
+# Soltion # 1
 monthlyInterestRate = annualInterestRate / 12
 monthlyPayment = 0
 currentBalance = balance
@@ -29,3 +30,20 @@ while currentBalance > 0:
         currentBalance = balance
 
 print "Lowest Payment: " + str(monthlyPayment)
+
+# Soltion # 2
+
+monthlyInterestRate = annualInterestRate/12
+minPay = 0
+
+balanceCopy = balance
+while balance > 0:
+    balance = balanceCopy
+    minPay += 10
+    for i in range(12):
+        monthlyUnpaid = balance - minPay
+        balance = monthlyUnpaid + monthlyInterestRate*monthlyUnpaid
+print "Lowest Payment: "+str(round(minPay,2))
+      
+
+Test results
